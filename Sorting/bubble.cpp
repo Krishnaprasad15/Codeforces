@@ -51,17 +51,22 @@ double eps = 1e-12;
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
  
-
-void solve(){
-}
 int main()
 {
- fast_cin();
- ll t;
- cin >> t;
- for(int it=1;it<=t;it++) {
-cout << "Case #" << it+1 << ": ";
-solve();
+ int n;
+ cin>>n;
+ vector<int> arr(n);
+ for(auto &it:arr) cin>>it;
+
+ for(int i=0;i<n;i++){
+    for(int j=0;j<n-i;j++){
+        if(arr[j]>arr[j+1]){
+            swap(arr[j],arr[j+1]);
+        }
+    }
+ }
+ for(auto it:arr){
+    cout<<it<<" ";
  }
  return 0;
 }
