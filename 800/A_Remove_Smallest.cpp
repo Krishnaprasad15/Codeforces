@@ -17,5 +17,4 @@ int main() {
     (cnt==n)? cout<<"YES":cout<<"NO";
     cout<<"\n";
  }
-//  return 0;
 }
