@@ -3,12 +3,13 @@ using namespace std;
 void solve(){
     int n;
     cin>>n;
+    vector<int> a(n);
+    for(auto &it:a) cin>>it;
+    
     if(n==1) {
         cout<<"YES"<<"\n";
         return;
     }
-    vector<int> a(n);
-    for(auto &it:a) cin>>it;
 
     sort(a.begin(),a.end());
     bool flag=true;
