@@ -13,13 +13,9 @@ int main() {
         b[i]=a[i];
     }
     sort(b.begin(),b.end());
-    int mx=b[n-1],mx1=b[n-1];
-    for(int i=n-2;i>=0;i--){
-        if(mx1!=b[i]){
-            mx1=b[i];
-            break;
-        }
-    }
+    int mx=b[n-1],mx1;
+    if(b[n-1]==b[n-2]) mx1=mx;
+    else mx1=b[n-2];
     for(int i=0;i<n;i++){
         if(a[i]==mx) cout<<a[i]-mx1<<" ";
         else cout<<a[i]-mx<<" ";
