@@ -13,6 +13,7 @@ void solve(){
         for(int i=0;i<n;i++){
             if(s[i]=='Q') cnt++;
             else cnt--;
+            if(cnt<0) cnt=0;
         }
         if(cnt<=0) cout<<"YES";
         else cout<<"NO";
