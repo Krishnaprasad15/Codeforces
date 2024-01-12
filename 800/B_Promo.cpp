@@ -19,7 +19,7 @@ void solve(){
         int x,y;
         cin>>x>>y;
         cout<<Q[n-x+y]-Q[n-x]<<endl;
-    }
+    }   
 }
 int main() {
     // int t;
