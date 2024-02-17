@@ -7,7 +7,7 @@ void solve(){
     cin>>n;
 
     ll x= n/2020;
-    if(n%10<=x) cout<<"YES";
+    if(n%2020<=x) cout<<"YES";
     else cout<<"NO";
     cout<<"\n";
 }
