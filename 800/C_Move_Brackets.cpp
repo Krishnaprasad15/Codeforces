@@ -12,12 +12,17 @@ typedef long long ll;
 void solve(){
     int n;
     cin>>n;
-    vi a(n);
-    for(auto &it:a) cin>>it;
-
-    sort(a.rbegin(),a.rend());
-    for(auto it:a) cout<<it<<" ";
-    cout<<nl;
+    string s;
+    cin>>s;
+    stack<char> st;
+    int cnt=0;
+    for(int i=0;i<n;i++){
+        // if(st.empty()) st.push(s[i]);
+        if(s[i]=='(') st.push(s[i]);
+        else if(s[i]==')' && !st.empty() && st.top()=='(') st.pop();
+        else if(s[i]==')')cnt++;
+    }
+    cout<<cnt<<nl;
 }
 
 int main() {
