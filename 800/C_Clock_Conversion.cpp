@@ -14,7 +14,6 @@ void solve(){
     cin>>s;
 
     int num = (s[0]-'0')*10 + (s[1]-'0');
-    // cout<<num<<nl;
     string ampm;
     if(num>11) ampm=" PM\n";
     else ampm=" AM\n";
