@@ -39,7 +39,7 @@ void solve(){
         if(mp[4]) cout<<1<<nl;
         else if(mp[3]) cout<<2<<nl;
         else if(mp[2]) cout<<3<<nl;
-        else cout<<4<<nl;
+        else if(mp[1])cout<<4<<nl;
     }
 }
 
