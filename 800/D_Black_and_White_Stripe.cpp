@@ -10,24 +10,21 @@ typedef long long ll;
 #define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
  
 void solve(){
-    ll n;
-    cin>>n;
-    vl a(n);
-    map<int,int>mp;
-    for(auto &it:a){
-        cin>>it;
-        mp[it]++;
-    }
-    for(auto it:mp) if(it.second==1){
-        cout<<-1<<nl;
-        return;
-    }
-    ll res=1;
-    for(int i=0;i<n-1;i++){
-        if(a[i]!=a[i+1]){
-            cout<<res<<" ";
-            res=i+2;
-        }else cout<<i+2<<" ";
+    ll n,k;
+    cin>>n >>k;
+    string s;
+    cin>>s;
+
+    ll l=0,r=0,res=INT_MAX,cnt=0;
+    while(r<n){
+        if(s[r]=='W') cnt++;
+
+        if(r-l+1==k){
+            res=min(res,cnt);
+            if(s[l]=='W') cnt--;
+            l++;
+        }
+        r++;
     }
     cout<<res<<nl;
 }
