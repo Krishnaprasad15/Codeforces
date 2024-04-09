@@ -8,49 +8,72 @@ typedef long long ll;
 #define YES cout << "YES"<<nl
 #define NO cout << "NO"<<nl
 #define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-ll mod= 1e9+7;
+ 
 void solve(){
     ll n,k;
     cin>>n>>k;
-    // k%=mod;
-    vl a(n);
-    for(auto&it:a) cin>>it;
-    // for(ll i=0;i<n;i++){
-    //     ll x;
-    //     cin>>x;
-    //     a[i]= x%k;
-    // }
-    // for(ll i=0;i<n)
-    ll l=0,r=n-1,cnt=0;
-    bool flag=true;
-    while(l<=r){
-        if(flag){
-            a[l]--;
-            if(a[l]==0){
-                cnt++;
-                l++;
+
+    deque<ll> q;
+    for(int i=0,x;i<n;i++){
+        cin>>x;
+        q.push_back(x);
+    }
+    int f=1,res=0;
+    while(k>0 && q.size()){
+        if(q.size()==1){
+            if(q.front()<=k) res++;
+            break;
+        }
+
+        int x= q.front();
+        int y= q.back();
+        q.pop_back();
+        q.pop_front();
+
+        int z= min(x,y);
+
+        if(f==1){
+            if(z==x){
+                if(k<2*z-1) break;
+                k-= 2*z-1;
+                y-= z-1;
+                q.push_back(y);
+                f=0;
+                res++;
+            }else{
+                if(k<2*z) break;
+                k-= 2*z;
+                x-=z;
+                q.push_front(x);
+                res++;
             }
         }else{
-            a[r]--;
-            if(a[r]==0){
-                cnt++;
-                r--;
+            if(z==y){
+                if(k<2*z-1) break;
+                k-=2*z-1;
+                x-= z-1;
+                f=1;
+                q.push_front(x);
+                res++;
+            }else{
+                if(k<2*z) break;
+                k-= 2*z;
+                y-= z;
+                q.push_back(y);
+                res++;
             }
         }
-        k--;
-        if(k==0) break;
-        flag=!flag;
     }
-    cout<<cnt<<nl;
+    cout<<res<<nl;
+
 }
 
 int main() {
     optimize();
-    ll t=1;
+    int t=1;
     cin>>t;
     while(t--){
         solve();
     }
     return 0;
 }
-
