@@ -19,19 +19,17 @@ void solve(){
         for(int j=0;j<m;j++){
             cin>>a[i][j];
             res+= abs(a[i][j]);
-            if(abs(a[i][j])<100) mn= abs(a[i][j]);
+            if(abs(a[i][j])<mn) mn= abs(a[i][j]);
         }
     }
-    int zero=0;
+    int cnt=0;
     for(int i=0;i<n;i++){
         for(int j=0;j<m;j++){
-            // res+= ()
-            if(a[i][j]<0) zero++;
+            if(a[i][j]<0) cnt++;
         }
     }
-    if(zero%2!=0) res-= 2*mn;
+    if(cnt%2!=0) res-=2*mn;
     cout<<res<<nl;
-
 }
 
 int main() {

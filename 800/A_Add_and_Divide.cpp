@@ -13,22 +13,26 @@ void solve(){
     ll a,b;
     cin>>a >>b;
     ll cnt=0;
-    while(a!=0){
-        if(a==b){
-            cnt+=2;
-            break;
-            // b+=1;
-        }
-        if(b&1) b+=1;
-        else a/=b;
+    if(a<b){
+        cout<<1<<nl;
+        return;
+    }else if(a==b){
+        cout<<2<<nl;
+        return;
+    }
+
+    while(a>b){
+        a/=b;
         cnt++;
     }
+
+    if(a==b) cnt+=2;
     cout<<cnt<<nl;
 }
 
 int main() {
     optimize();
-    int t=1;
+    ll t=1;
     cin>>t;
     while(t--){
         solve();
